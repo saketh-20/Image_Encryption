@@ -1,0 +1,33 @@
+{% extends 'users/userbase.html'%}
+{%load static%}
+<link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/styles/default.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+{%block contents%}
+<div id="content">
+    <h1>Random Number Generator with<span style="color:#b29b35;"> XorShiftAnd</span> and Image Encryption</h1>
+    <blockquote> With the rapid development of computer science, fast and secure transmission of data has gained great
+        importance. Undoubtedly, one of the most common data types is digital images. The attractiveness of digital
+        images is result of wide range usage from social media to defense industry. In order to transmit through correct
+        and secure channels, images must be encrypted before they are sent. The relevant process is realized by means of
+        encryption algorithms. Symmetric steams encryption algorithms which have been proposed so far have weaknesses in
+        terms of speed and processing power. Therefore, encryption quality drops dramatically in certain scenarios. A
+        novel symmetric stream encryption algorithm called XorShiftAnd has been proposed in this study.
+    </blockquote>
+    <p>
+    <h2>XorShiftAnd Random Key: {{key}}</h2>
+    <pre><code class="python">def generateXorShiftAnd():
+    x = 325789124
+    y = 534567914
+    z = 721578912
+    w = 93168913
+    t = x ^ ((x << 11) & 0xFFFFFFFF)
+    x, y, z = y, z, w
+    w = (w ^ (w >> 19)) ^ (t ^ (t >> 8))
+    return w
+  </code></pre>
+    </p>
+</div>
+
+{%endblock%}

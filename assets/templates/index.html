@@ -1,0 +1,30 @@
+{%extends 'base.html'%}
+{% load static %}
+
+{%block contents%}
+  <div id="content">
+            <h1>Random Number Generator with<span style="color:#b29b35;"> XorShiftAnd</span> and Image Encryption</h1>
+            <blockquote> With the rapid development of computer science, fast and secure transmission of data has gained great importance. Undoubtedly, one of the most common data types is digital images. The attractiveness of digital images is result of wide range usage from social media to defense industry. In order to transmit through correct and secure channels, images must be encrypted before they are sent. The relevant process is realized by means of encryption algorithms. Symmetric steams encryption algorithms which have been proposed so far have weaknesses in terms of speed and processing power. Therefore, encryption quality drops dramatically in certain scenarios. A novel symmetric stream encryption algorithm called XorShiftAnd has been proposed in this study.
+            </blockquote>
+            <p>With the development of computer science and
+technology, there have been changes in encryption techniques.
+However, distribution and protection of keys is still a current
+problem to be solved. Symmetric algorithms are relatively
+affected by related negative features. This is because
+encryption key is also used in decryption process. Therefore,
+it is necessary to increase security measures by complicating
+existing algorithms.
+Image encryption is defined as making original image
+unrecognizable with mathematical modifications on pixel data
+whereas decryption process is converting encrypted image to
+its original form. Typical stream encryption process of images
+is shown in Figure 1. The key, K which is produced by key
+generator is employed to create random number sequence, zk.
+It is also called key stream. Therefore, this process is called stream encryption. The approach algorithm is symmetric
+encryption since K is used both in encryption and decryption
+phases. Starting with pixel in the upper left corner of digital
+image, xk represents kth pixel while zk represents number which
+is produced by PRNG for the same pixel position and yk
+represents encrypted pixel for corresponding position.
+        </div>
+{%endblock%}

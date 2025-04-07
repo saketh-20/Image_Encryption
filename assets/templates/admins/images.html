@@ -1,0 +1,45 @@
+{% extends 'admins/adminbase.html'%}
+{%load static%}
+{%block contents%}
+<div id="content">
+    <h1>Random Number Generator with<span style="color:#b29b35;"> XorShiftAnd</span> and Image Encryption</h1>
+    <blockquote> With the rapid development of computer science, fast and secure transmission of data has gained great
+        importance. Undoubtedly, one of the most common data types is digital images. The attractiveness of digital
+        images is result of wide range usage from social media to defense industry. In order to transmit through correct
+        and secure channels, images must be encrypted before they are sent. The relevant process is realized by means of
+        encryption algorithms. Symmetric steams encryption algorithms which have been proposed so far have weaknesses in
+        terms of speed and processing power. Therefore, encryption quality drops dramatically in certain scenarios. A
+        novel symmetric stream encryption algorithm called XorShiftAnd has been proposed in this study.
+    </blockquote>
+    <center>
+        <h3>User Can decrypt the Uploaded Images</h3>
+        <table class="table table-bordered bg-light text-dark" border="2px">
+            <thead>
+            <tr style="color:red;font-weight:bold;">
+                <th>S.No</th>
+                <th>Login ID</th>
+                <th>Image Name</th>
+                <th>XorShift Ket</th>
+                <th>Date</th>
+                <th>Image</th>
+                
+            </tr>
+            </thead>
+            <tbody>
+            {% for i in data %}
+            <tr style="color: Green">
+                <td>{{forloop.counter}}</td>
+                <td>{{i.loginid}}</td>
+                <td>{{i.imageName}}</td>
+                <td>{{i.xorShiftKey}}</td>
+                <td>{{i.cdate}}</td>
+                <td><img src="{%static 'images/encImage.jpg'%}" width="40" height="40" alt=""></td>
+
+            </tr>
+            {%endfor%}
+            </tbody>
+        </table>
+    </center>
+</div>
+
+{%endblock%}

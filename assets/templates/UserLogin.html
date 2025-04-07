@@ -1,0 +1,57 @@
+{%extends 'base.html'%}
+{% load static %}
+
+{%block contents%}
+
+<div id="content">
+    <h1>Random Number Generator with<span style="color:#b29b35;"> XorShiftAnd</span> and Image Encryption</h1>
+    <blockquote> With the rapid development of computer science, fast and secure transmission of data has gained great
+        importance. Undoubtedly, one of the most common data types is digital images. The attractiveness of digital
+        images is result of wide range usage from social media to defense industry. In order to transmit through correct
+        and secure channels, images must be encrypted before they are sent. The relevant process is realized by means of
+        encryption algorithms. Symmetric steams encryption algorithms which have been proposed so far have weaknesses in
+        terms of speed and processing power. Therefore, encryption quality drops dramatically in certain scenarios. A
+        novel symmetric stream encryption algorithm called XorShiftAnd has been proposed in this study.
+    </blockquote>
+    <center>
+        <h2>User Login Here</h2>
+        <form action="{%url 'UserLoginCheck'%}" method="POST" class="text-primary" style="width:100%">
+            {% csrf_token %}
+            <table>
+                <div class="form-group row">
+                    <div class="col-md-12">
+                        <input type="text" class="form-control" name="loginid" required placeholder="Enter Login Id">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-md-12">
+                        <input type="password" class="form-control" name="pswd" required placeholder="Enter password">
+                    </div>
+                </div>
+                <tr>
+                    <td style="padding:20px;">
+                        <button class="btn btn-block btn-primary text-white py-2 px-4" style="margin-left:20%;"
+                                type="submit">
+                            Login
+                        </button>
+                    </td>
+                    <td>
+                        <button class="btn btn-block btn-primary text-white py-2 px-4" style="margin-left:20%;"
+                                type="reset">
+                            Reset
+                        </button>
+                    </td>
+                </tr>
+
+                {% if messages %}
+                {% for message in messages %}
+                <font color='GREEN'> {{ message }}</font>
+                {% endfor %}
+                {% endif %}
+
+            </table>
+
+        </form>
+    </center>
+</div>
+{%endblock%}

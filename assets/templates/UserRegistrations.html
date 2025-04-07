@@ -1,0 +1,102 @@
+{%extends 'base.html'%}
+{% load static %}
+
+{%block contents%}
+
+<div id="content">
+    <h1>Random Number Generator with<span style="color:#b29b35;"> XorShiftAnd</span> and Image Encryption</h1>
+    <blockquote> With the rapid development of computer science, fast and secure transmission of data has gained great
+        importance. Undoubtedly, one of the most common data types is digital images. The attractiveness of digital
+        images is result of wide range usage from social media to defense industry. In order to transmit through correct
+        and secure channels, images must be encrypted before they are sent. The relevant process is realized by means of
+        encryption algorithms. Symmetric steams encryption algorithms which have been proposed so far have weaknesses in
+        terms of speed and processing power. Therefore, encryption quality drops dramatically in certain scenarios. A
+        novel symmetric stream encryption algorithm called XorShiftAnd has been proposed in this study.
+    </blockquote>
+    <center>
+        <h2>User Register Here</h2>
+       <form action="{%url 'UserRegisterActions'%}" method="POST" style="width:100%">
+
+                    {% csrf_token %}
+                    <table>
+                        <tr>
+                            <td></td>
+                            <td>User Name</td>
+                            <td style="color:black">{{form.name}}</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>Login ID</td>
+                            <td style="color:black">{{form.loginid}}</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>Password</td>
+                            <td style="color:black">{{form.password}}</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>Mobile</td>
+                            <td style="color:black">{{form.mobile}}</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>email</td>
+                            <td style="color:black">{{form.email}}</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>Locality</td>
+                            <td style="color:black">{{form.locality}}</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>Address</td>
+                            <td style="color:black">{{form.address}}</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>City</td>
+                            <td style="color:black">{{form.city}}</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>State</td>
+                            <td style="color:black">{{form.state}}</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td style="color:black">{{form.status}}</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td>
+                                <button class="btn btn-block btn-primary text-white py-3 px-5"
+                                        style="margin-center:20%;"
+                                        type="submit">
+                                    Register
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="form-group mt-3">
+                                    <span>&nbsp;</span>
+                                </div>
+                            </td>
+                        </tr>
+
+                        {% if messages %}
+                        {% for message in messages %}
+                        <font color='red'> {{ message }}</font>
+                        {% endfor %}
+                        {% endif %}
+
+                    </table>
+
+                </form>
+    </center>
+</div>
+{%endblock%}

@@ -1,0 +1,63 @@
+{% extends 'users/userbase.html'%}
+{%load static%}
+{%block contents%}
+<div id="content">
+    <h1>Random Number Generator with<span style="color:#b29b35;"> XorShiftAnd</span> and Image Encryption</h1>
+    <blockquote> With the rapid development of computer science, fast and secure transmission of data has gained great
+        importance. Undoubtedly, one of the most common data types is digital images. The attractiveness of digital
+        images is result of wide range usage from social media to defense industry. In order to transmit through correct
+        and secure channels, images must be encrypted before they are sent. The relevant process is realized by means of
+        encryption algorithms. Symmetric steams encryption algorithms which have been proposed so far have weaknesses in
+        terms of speed and processing power. Therefore, encryption quality drops dramatically in certain scenarios. A
+        novel symmetric stream encryption algorithm called XorShiftAnd has been proposed in this study.
+    </blockquote>
+    <center>
+        <h3>User Can decrypt the Uploaded Images</h3>
+        <form action="{%url 'ShareToUsers'%}" method="post">
+            <table class="table table-bordered bg-light text-dark" border="2px">
+                <thead>
+                <tr style="color:red;font-weight:bold;">
+                    {%csrf_token%}
+
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <input type="hidden" name="imgId" value="{{data.id}}">
+                    <input type="hidden" name="byteKey" value="{{data.byteKey}}">
+                    <td>Login ID</td>
+                    <td><input type="text" name="sharefrom" value="{{data.loginid}}"></td>
+                </tr>
+                <tr>
+                    <td>Image Name</td>
+                    <td><input type="text" name="imageName" value="{{data.imageName}}"></td>
+                </tr>
+                <tr>
+                    <td>XorShift Ket</td>
+                    <td><input type="text" name="xorShiftKey" value="{{data.xorShiftKey}}"></td>
+                </tr>
+                <tr>
+                    <td>Select User</td>
+                    <td>
+                        <select name="recipientUser" required>
+                            <option value="">---Select the Recipient User</option>
+                            {% for i in usrs %}
+                            <option value="{{i.loginid}}">{{i.loginid}}</option>
+                            {% endfor %}
+                        </select>
+                    </td>
+                </tr>
+
+
+                <tr>
+                    <td></td>
+                    <td><input type="submit" value="Submit"></td>
+
+                </tr>
+                </tbody>
+            </table>
+        </form>
+    </center>
+</div>
+
+{%endblock%}
