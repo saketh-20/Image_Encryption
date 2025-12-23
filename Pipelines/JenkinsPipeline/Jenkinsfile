@@ -1,4 +1,4 @@
-@Library('shared-lib') _
+@Library('JenkinsSharedLibrary')_
 
 simplePipeline(
     repoUrl: 'https://github.com/saketh-20/Image_Encryption.git',
