@@ -1,0 +1,6 @@
+@Library('shared-lib') _
+
+simplePipeline(
+    repoUrl: 'https://github.com/saketh-20/Image_Encryption.git',
+    branch: 'main'
+)
