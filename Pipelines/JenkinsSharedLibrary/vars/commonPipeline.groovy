@@ -13,19 +13,19 @@ def call(Map config = [:]) {
 
             stage('Build') {
                 steps {
-                    echo 'Build step'
+                    echo 'Build step...'
                 }
             }
 
             stage('Test') {
                 steps {
-                    echo 'Test step'
+                    echo 'Test step...'
                 }
             }
 
             stage('Deploy') {
                 steps {
-                    echo 'Deploy step'
+                    echo 'Deploy step...'
                 }
             }
 
